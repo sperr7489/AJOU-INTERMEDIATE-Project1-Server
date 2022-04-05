@@ -1,9 +1,10 @@
 // 전체 피드 조회
 exports.readAllFeed =async (connection)=>{
     const readAllFeedQuery = `
-    SELECTed * FROM feed;
+    select * FROM feed;
     `
     const [readAllFeedRow] = await connection.query(readAllFeedQuery);
+    console.log(readAllFeedRow)
     return readAllFeedRow;
 }
 
@@ -16,7 +17,7 @@ exports.selectedFeedExist = async (connection,feedIdx)=>{
         WHERE FeedIdx = ? AND status = 'N'
     ) as exist;
     `
-    const [selectFeedExistRow] = await connection.query(selectFeedExistQuery,feedIdx);
+    const [[selectFeedExistRow]] = await connection.query(selectFeedExistQuery,feedIdx);
     return selectFeedExistRow
 }
 
@@ -39,6 +40,7 @@ exports.insertFeed = async(connection,insertFeedParams)=>{
 
     return insertFeedRow;
 }
+//피드 수정
 exports.updateFeed = async(connection, updateFeedParams) =>{
     const updateFeedQuery = `
         update feed set title = ?, content = ?, author = ?

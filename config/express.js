@@ -13,6 +13,7 @@ module.exports = () => {
     })
 
     require('../src/Feed/feedRoute')(app);
+    require('../src/comment/commentRoute')(app);
     
     return app;
 }

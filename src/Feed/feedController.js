@@ -1,4 +1,3 @@
-const res = require("express/lib/response");
 const response = require("../../config/response");
 const { resultResponse } = require("../../config/response");
 const { basicResponse } = require("../../config/response");
@@ -59,5 +58,4 @@ exports.deleteFeed  =async(req,res)=>{
 
     const deleteFeedResult = await feedService.deleteFeed(feedIdx)  
     return res.send(deleteFeedResult)
-
 }
