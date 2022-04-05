@@ -8,11 +8,11 @@ module.exports = (app) => {
     app.get("/feed/:feedIdx", feed.getSelectedFeed);
 
     // // 게시판 게시글 작성 API
-    // app.post("/feed", feed.postFeedPost);
+    app.post("/feed", feed.postFeed);
 
     // // 게시판 게시글 수정 API
-    // app.patch("/feed", feed.patchFeedPost);
+    app.patch("/feed/:feedIdx", feed.patchFeed);
 
     // // 게시판 게시글 삭제 API
-    // app.delete("/feed", feed.deleteFeedPost);
+    app.delete("/feed/:feedIdx", feed.deleteFeed);
 }

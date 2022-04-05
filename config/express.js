@@ -9,7 +9,7 @@ module.exports = () => {
     app.use(cors());
 
     app.get('/', (req, res) => {
-        res.send('Hello World!');
+        res.send('두잇 project1 중급 스터디 - API 서버');
     })
 
     require('../src/Feed/feedRoute')(app);
